@@ -1,0 +1,54 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+<div class="container add-emp">		
+    <center><h1 style="color:black;"><strong>Thread Details</strong></h1><br></center>
+    <table class="table table-bordered table-hover">
+            <tr>			
+                <th class="p-3 mb-2 bg-dark text-light">Thread Name</th>
+                <th class="p-3 mb-2 bg-dark text-light">description</th>
+                <th class="p-3 mb-2 bg-dark text-light">Price</th>
+                <th class="p-3 mb-2 bg-dark text-light">Image</th>
+                <th class="p-3 mb-2 bg-dark text-light">Merchant Name</th>
+
+            </tr> 
+            
+            {% for i in thread %}
+            <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.description}}</td>
+                    <td>{{i.price}}</td>
+                    <td><img src="{{ i.image.url }}" width="100px"></td> 
+                    <td>{{i.merchant.user.first_name}}</td>
+
+            </tr>  
+            {% endfor %}
+
+    </table>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+{% endblock  %}

@@ -1,0 +1,165 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+	
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+
+<section class="h-100 h-custom">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+          <h3><b>Merchant Cart</b></h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="h5"><b>Your Cart</b></th>
+                <th scope="col">Merchant Name</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in ct %}
+              <tr>
+                <th scope="row">
+                  <div class="d-flex align-items-center">
+                      <img style="max-width: 200px;max-height:140px;" src="/media/{{ i.thread.image }}">
+                  </div>
+                </th>
+                <td class="align-middle">
+                  <p class="mb-0" style="font-weight: 500;">{{i.thread.merchant.user.first_name}}</p>
+                </td>
+                <td class="align-middle">
+                  <p class="mb-0" style="font-weight: 500;">{{i.thread.name}}</p>
+                </td>
+                <td class="align-middle">
+                  <p class="mb-0" style="font-weight: 500;">{{i.thread.price}}</p>
+                </td>
+                <td class="align-middle">
+                  <a href="delete_mcart?id={{i.id}}">
+                  <button type="button" class="btn btn-primary btn-block btn-lg">Remove</button>
+              </a>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+
+
+          <div class="card-body p-4">
+            <div class="row">
+              <div class="col-lg-4 col-xl-3">
+
+                <hr class="my-4">
+
+                <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                  <p class="mb-2">Total</p>
+                  <p class="mb-2">₹
+                      {{i.thread.price}}</p>
+                </div>
+                
+                <a href="check_out_m"><button type="button" class="btn btn-primary btn-block btn-lg">
+                  <div class="d-flex justify-content-between">
+                       <span>Checkout</span>
+                    <span>₹
+                      {{i.thread.price}}</span>
+                  </div>
+                </button></a>
+
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="h-100 h-custom">
+    <div class="container h-100 py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+            <h3><b>Farmer Cart</b></h3>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="h5"><b>Your Cart</b></th>
+                  <th scope="col">Farmer Name</th>
+                  <th scope="col">Product Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for x in pet %}
+                <tr>
+                  <th scope="row">
+                    <div class="d-flex align-items-center">
+                        <img style="max-width: 200px;max-height:140px;" src="/media/{{ x.thread.image }}">
+                    </div>
+                  </th>
+                  <td class="align-middle">
+                    <p class="mb-0" style="font-weight: 500;">{{x.thread.farmer.user.first_name}}</p>
+                  </td>
+                  <td class="align-middle">
+                    <p class="mb-0" style="font-weight: 500;">{{x.thread.name}}</p>
+                  </td>
+                  <td class="align-middle">
+                    <p class="mb-0" style="font-weight: 500;">{{x.thread.price}}</p>
+                  </td>
+                  <td class="align-middle">
+                    <a href="delete_fcart?id={{x.id}}">
+                    <button type="button" class="btn btn-primary btn-block btn-lg">Remove</button>
+                </a>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+  
+
+            <div class="card-body p-4">
+              <div class="row">
+                <div class="col-lg-4 col-xl-3">
+  
+                  <hr class="my-4">
+  
+                  <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                    <p class="mb-2">Total</p>
+                    <p class="mb-2">₹
+                        {{x.thread.price}}</p>
+                  </div>
+                  
+                  <a href="check_out_f"><button type="button" class="btn btn-primary btn-block btn-lg">
+                    <div class="d-flex justify-content-between">
+                         <span>Checkout</span>
+                      <span>₹
+                        {{x.thread.price}}</span>
+                    </div>
+                  </button></a>
+  
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+{% endblock %}

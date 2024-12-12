@@ -1,0 +1,63 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container add-emp">		
+    <center><h1 style="color:black;"><strong>Booking Details Of Merchant Products</strong></h1><br></center>
+    <table class="table table-bordered table-hover">
+        <tr>			
+            <th class="p-3 mb-2 bg-dark text-light">Merchant Name </th>
+            <th class="p-3 mb-2 bg-dark text-light">Thread Name </th>
+            <th class="p-3 mb-2 bg-dark text-light">Payment</th>
+            <th class="p-3 mb-2 bg-dark text-light">Thread Image</th>
+
+
+        </tr> 
+        
+        {% for i in caa %}
+        <tr>
+                
+                <td>{{i.thread.merchant.user.first_name}}</td>
+                <td>{{i.thread.name}}</td>
+                <td>{{i.status}}</td> 
+                <td><img style="max-width: 200px;max-height:140px;" src="/media/{{ i.thread.image }}"></td> 
+
+                
+
+
+        </tr>   
+            {% endfor %}
+
+    </table>
+</div>
+
+<div class="container add-emp">		
+    <center><h1 style="color:black;"><strong>Booking Details Of Farmer Products</strong></h1><br></center>
+    <table class="table table-bordered table-hover">
+        <tr>			
+            <th class="p-3 mb-2 bg-primary text-light">Farmer Name </th>
+            <th class="p-3 mb-2 bg-primary text-light">Thread Name </th>
+            <th class="p-3 mb-2 bg-primary text-light">Payment</th>
+            <th class="p-3 mb-2 bg-primary text-light">Thread Image</th>
+
+
+        </tr> 
+        
+        {% for i in far %}
+        <tr>
+                
+                <td>{{i.thread.farmer.user.first_name}}</td>
+                <td>{{i.thread.name}}</td>
+                <td>{{i.status}}</td> 
+                <td><img style="max-width: 200px;max-height:140px;" src="/media/{{ i.thread.image }}"></td> 
+
+                
+
+
+        </tr>   
+            {% endfor %}
+
+    </table>
+</div>
+
+  {% endblock %}

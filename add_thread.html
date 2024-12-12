@@ -1,0 +1,64 @@
+{% extends 'merchant/mer_base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <div class="container">
+         <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h1 class="mb-4"> <b>Add Thread</b> </h1>
+            </div>
+        </div> 
+
+        <div class="row block-9">
+            <div class="col-md-8">
+                <form action="" method="post" enctype="multipart/form-data" class="p-4 p-md-5 contact-form">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Name" autocomplete="off" required="required">
+                            </div>
+                        </div>
+                        {% comment %} <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div> {% endcomment %}
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" name="price" class="form-control" placeholder="Price" >
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea name="desc" id="" cols="20" rows="5" class="form-control" placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                         <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="file" name="image" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="Add" class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        
+        </div>
+    </div>
+</section>
+
+{% endblock %}

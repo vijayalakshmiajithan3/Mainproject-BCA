@@ -1,0 +1,64 @@
+{% extends 'merchant/mer_base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+<div class="container add-emp">		
+    <center><h1 style="color:black;"><strong>Thread Details</strong></h1><br></center>
+    <table class="table table-bordered table-hover">
+        {% for i in thread %}
+            <tr>			
+                <th class="p-3 mb-2 bg-dark text-light">Thread Name</th>
+                <th class="p-3 mb-2 bg-dark text-light">description</th>
+                <th class="p-3 mb-2 bg-dark text-light">Price</th>
+                <th class="p-3 mb-2 bg-dark text-light">Image</th>
+                {% if i.status == 'approved' or i.status == 'rejected' %}
+                <th class="p-3 mb-2 bg-dark text-light">Status</th>
+                {% else %}
+                <th class="p-3 mb-2 bg-dark text-light">Approve</th>
+                <th class="p-3 mb-2 bg-dark text-light">Delete</th>
+                {% endif %}
+            </tr> 
+            
+            
+            <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.description}}</td>
+                    <td>{{i.price}}</td>
+                    <td><img src="{{ i.image.url }}" width="100px"></td> 
+                    {% if i.status == 'approved' or i.status == 'rejected' %}
+                    <td><p> Approved </p></td>
+                    {% else %}
+                    <td><a href="thread_approve?id={{ i.id}}" class=" btn btn-success">Approve</a></td>
+                    <td><a href="thread_approve?id={{ i.id}}" class=" btn btn-danger">Reject</a></td>
+                    {% endif %}
+
+            </tr>  
+            {% endfor %}
+
+    </table>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+{% endblock  %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h1 class="mb-4"> <b>LOGIN</b> </h1>
+            </div>
+        </div>
+
+        <div class="row block-9">
+            <div class="col-md-8">
+                <form action="" method="post" class="p-4 p-md-5 contact-form">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" id="lname" name="email" class="form-control" placeholder="Username" autocomplete = "off" required />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="password" id="lname" name="password" class="form-control" placeholder="Password" autocomplete="off" required/>
+                            </div>
+                            </div>
+                            
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="Login Now" class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        
+        </div>
+    </div>
+</section>
+
+{% endblock %}

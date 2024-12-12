@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h1 class="mb-4"> <b>FARMER REGISTRATION</b> </h1>
+            </div>
+        </div>
+
+        <div class="row block-9">
+            <div class="col-md-8">
+                <form action="" method="post" class="p-4 p-md-5 contact-form">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" pattern="[A-z a-z]+" title="letters only" autocomplete = "off" required />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Email" autocomplete = "of" required />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="tel" name="phone" class="form-control" placeholder="Phone Number" pattern="[0-9]{10}" title ="10 numeric characters only" autocomplete = "off" required />
+                            </div> 
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea name="address" id="" cols="20" rows="5" class="form-control" placeholder="Address" autocomplete = "of" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="0ff" required>
+                            </div>
+                            <!-- <div class="col-md-12">
+                            <div class="form-group">
+                                
+                                <input type="password" name="password" class="form-control" placeholder=" Confirm Password" autocomplete="0ff" required>
+                            </div> -->
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="Register Now" class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        
+        </div>
+    </div>
+</section>
+
+{% endblock %}

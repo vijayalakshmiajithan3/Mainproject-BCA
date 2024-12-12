@@ -1,0 +1,43 @@
+{% extends 'merchant/mer_base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+        <div class="container quote px-lg-0">
+            <div class="section-title text-center">
+                <h1 class="display-5 mb-5">Update Track</h1>
+            </div>
+            <div class="row g-0 mx-lg-0">
+                <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-lg-5 pe-lg-0">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-12">
+                                <select type="text" name="track" class="form-control" placeholder="category">
+                                    <option value="Order Confirm">Order Confirm</option>
+                                    <option value="Order Packed">Order Packed</option>
+                                    <option value="Order Shipped">Order Shipped</option>
+                                    <option value="Order Deliver Today">Order Deliver Today</option>
+                                    <option value="Order Delivered">Order Delivered</option>
+                                </select>
+                            </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Update Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}

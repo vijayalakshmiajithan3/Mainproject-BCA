@@ -1,0 +1,36 @@
+{% extends 'merchant/mer_base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container add-emp">		
+    <center><h1 style="color:black;"><strong>Booking Details Of Products</strong></h1><br></center>
+    <table class="table table-bordered table-hover">
+        <tr>		
+            <th class="p-3 mb-2 bg-dark text-light">User Name </th>	
+            <th class="p-3 mb-2 bg-dark text-light">Product Name </th>
+            <th class="p-3 mb-2 bg-dark text-light">Payment</th>
+            <th class="p-3 mb-2 bg-dark text-light">Product Image</th>
+            <th class="p-3 mb-2 bg-dark text-light">Track</th>
+            <th class="p-3 mb-2 bg-dark text-light">Update Track </th>
+
+
+
+        </tr> 
+        
+        {% for i in merr %}
+        <tr>
+                <td>{{i.user.user.first_name}}</td>
+                <td>{{i.thread.name}}</td>
+                <td>{{i.status}}</td> 
+                <td><img style="max-width: 200px;max-height:140px;" src="/media/{{ i.thread.image }}"></td> 
+                <td>{{i.track}}</td> 
+                <td><a href="update_track?id={{ i.id}}" class=" btn btn-success">Update</a></td>
+
+
+        </tr>   
+            {% endfor %}
+
+    </table>
+</div>
+
+  {% endblock %}

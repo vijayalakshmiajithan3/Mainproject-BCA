@@ -1,0 +1,105 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+<main>
+  <!--? slider Area Start-->
+  <div class="slider-area  position-relative ">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider position-relative hero-overly slider-height  d-flex align-items-center" data-background="{% static 'assets/img/hero/h1_hero.png' %}">
+            <div class="container">
+             <div class="row">
+                 <div class="col-xl-6 col-lg-6">
+                    <div class="hero-caption">
+                        <img class="rotateme" src="{% static 'assets/img/hero/hero-icon.png' %}" alt="" data-animation="zoomIn" data-delay="1s">
+                        <h1 data-animation="fadeInLeft" data-delay=".4s">USER</h1>
+                        {% comment %} <p data-animation="fadeInLeft" data-delay=".6s">TLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Suspendisse varius enim in eros elementum tristique. Duis 
+                        cursus, mi quis viverra ornare.</p> {% endcomment %}
+                        <!-- Hero Btn -->
+                        {% comment %} <a href="#" class="btn"  data-animation="fadeInLeft" data-delay=".8s" >THREAD OUTLET</a> 
+                        <a href="#" class="btn"  data-animation="fadeInLeft" data-delay=".8s" >MY BOOKINGS</a> 
+                        <a href="#" class="btn"  data-animation="fadeInLeft" data-delay=".8s" >TRACKINGS</a> 
+                        <a href="#" class="btn"  data-animation="fadeInLeft" data-delay=".8s" >FEEDBACKS</a>     {% endcomment %}
+                        {% comment %} <a href="#" class="btn"  data-animation="fadeInLeft" data-delay=".8s" >Our Services</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Left img -->
+        <div class="hero-img">
+            <img src="{% static 'assets/img/hero/h1_hero1.png' %}" alt=""  data-animation="fadeInRight" data-transition-duration="5s">
+        </div>
+    </div>
+    <!-- Single Slider -->
+    <div class="single-slider position-relative hero-overly slider-height  d-flex align-items-center" data-background="{% static 'assets/img/hero/h1_hero.png' %}">
+        <div class="container">
+         <div class="row">
+             <div class="col-xl-6">
+                <div class="hero-caption">
+                    <img class="rotateme" src="{% static 'assets/img/hero/hero-icon.png' %}" alt="" data-animation="zoomIn" data-delay="1s">
+                    <h1 data-animation="fadeInLeft" data-delay=".4s">USER</h1>
+                    {% comment %} <p data-animation="fadeInLeft" data-delay=".6s">TLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Suspendisse varius enim in eros elementum tristique. Duis 
+                    cursus, mi quis viverra ornare.</p> {% endcomment %}
+                    <!-- Hero Btn -->
+                     {% comment %} <a href="#" class="btn"  data-animation="fadeInLeft" data-delay=".8s" >OUTLET</a> 
+                     <a href="#" class="btn"  data-animation="fadeInLeft" data-delay=".8s" >BOOKINGS</a> 
+                     <a href="#" class="btn"  data-animation="fadeInLeft" data-delay=".8s" >TRACKING</a> 
+                     <a href="#" class="btn"  data-animation="fadeInLeft" data-delay=".8s" >FEEDBACK</a>  {% endcomment %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Left img -->
+    <div class="hero-img">
+        <img src="{% static 'assets/img/hero/h1_hero1.png' %}" alt=""  data-animation="fadeInRight" data-transition-duration="5s">
+    </div>
+</div>
+</div>
+</div>
+<!-- slider Area End-->
+
+
+<!--? Visit Our Tailor Start -->
+<section class="visit-tailor-area fix">
+    <!--Right Contents  -->
+    <div class="tailor-offers"></div>
+    <!-- left Contents -->
+    <div class="tailor-details">
+        <h2>Your Dashboard</h2>
+        
+        {% comment %} <p class="pera-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+        <p class="pera-bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Suspendisse varius enim in eros elementum tristique. Duis 
+        cursus, mi quis viverra ornare.</p> {% endcomment %}
+        <a href="thread_btn" class="btn">THREAD OUTLET</a>
+        <br>
+        <br>
+        <a href="booking" class="btn">MY BOOKINGS</a>
+        <br>
+        <br>
+        <a href="view_track" class="btn">TRACKINGS</a>
+        <br>
+        <br>
+        <a href="mfeed_back" class="btn">FEEDBACK</a>
+
+    </div>
+</section>
+<!-- Visit Our Tailor End -->
+
+
+
+</main>
+
+
+{% endblock  %}

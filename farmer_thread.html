@@ -1,0 +1,38 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<!--? Clients Offers Start -->
+<div class="clients-area section-padding40">
+    <div class="container">
+        <div class="row">
+            {% for i in thread %}
+            
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".2s" >
+                    <div class="offers-img">
+                       <img src="{{ i.image.url }}" alt="">
+                    </div>
+                    <div class="offers-cap">
+                        <span>{{ i.id }}</span>
+                        <h3><a href="#">{{ i.name }}</a></h3>
+                        <p>{{ i.description }}</p>
+                        <p>Price- ₹{{ i.price }}/-</p>
+                        <a href="f_thread_detail_view?id={{ i.id }}" class="btn">Details</a>
+                    </div>
+                </div>
+            </div>
+           
+            {% endfor %}
+        </div>
+    </div>
+</div> 
+<!-- Clients Offers End -->
+
+{% endblock %}

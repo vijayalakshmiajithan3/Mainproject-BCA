@@ -1,0 +1,57 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+
+
+<div class="container add-emp">		
+    <center><h1 style="color:black;"><strong>Farmer Details</strong></h1><br></center>
+    <table class="table table-bordered table-hover">
+            <tr>			
+                <th class="p-3 mb-2 bg-dark text-light">Farmer Name </th>
+                <th class="p-3 mb-2 bg-dark text-light">Email</th>
+                <th class="p-3 mb-2 bg-dark text-light">Phone Number</th>
+                <th class="p-3 mb-2 bg-dark text-light">Address</th>
+                <th class="p-3 mb-2 bg-dark text-light">Approve</th>
+                <th class="p-3 mb-2 bg-dark text-light">Delete</th>
+            </tr> 
+            
+            {% for i in farmer %}
+            <tr>
+                    <td>{{i.user.first_name}}</td>
+                    <td>{{i.user.email}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.address}}</td> 
+                    <td><a href="approve?id={{ i.user_id}}" class=" btn btn-success">Approve</a></td>
+                    <td><a href="reject?id={{ i.user_id}}" class=" btn btn-danger">Reject</a></td>
+
+            </tr>  
+            {% endfor %}
+
+    </table>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+{% endblock  %}
